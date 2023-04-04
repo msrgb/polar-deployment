@@ -6,8 +6,8 @@ metadata:
     db: polar-postgres
 data:
   init.sql: |
-    CREATE DATABASE polardb_catalog;
-    CREATE DATABASE polardb_order;
+    SELECT 'CREATE DATABASE polardb_catalog' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'polardb_catalog');
+    SELECT 'CREATE DATABASE polardb_order' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'polardb_order');
 
 ---
 apiVersion: apps/v1
